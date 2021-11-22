@@ -1,0 +1,38 @@
+<!-- For testing using script tag -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./lib/livenessWebSdk.min.js"></script>
+    <script>
+        const LivenessWebSdkPopUpOpener = window.livenessWebSdk.default
+      function openLivenessSdk(onSuccess, onError) {
+        const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzNzU4NDQxMiwianRpIjoiNWUxZDcyY2EtYTdkOC00MzFiLWJmYjQtZGMyYzU4NTUwMjExIiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoibGl2ZW5lc3NfbGl2ZW5lc3Nfc2RrX0hKRG5sRHlWQmF4TU52bGdla1Z3IiwibmJmIjoxNjM3NTg0NDEyLCJleHAiOjE2Mzc1ODUzMTIsInVzZXJfY2xhaW1zIjp7InNjb3BlcyI6WyJsaXZlbmVzcy1zdWJtaXQtcmVzdWx0cyIsImxpdmVuZXNzLWdldC1jb25maWciXX19.S_GkFOJAfyb5M92Z7xcsY76wXwh4uON9ub2FRubnJ3c";
+        const options = {
+          token,
+          window_name: "Surepass",
+          dimension: { width: "450", height: "850" },
+        };
+        const livenessSdk = new LivenessWebSdkPopUpOpener(options);
+        livenessSdk.openWindow(onSuccess, onError);
+      }
+
+      function onSuccess(response) {
+        console.log("Response", response);
+      }
+
+      function onError(response) {
+        console.log("Error", response);
+      }
+
+      function openPopUp(){
+          openLivenessSdk(onSuccess,onError)
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="openPopUp()">Open</button>
+  </body>
+</html>

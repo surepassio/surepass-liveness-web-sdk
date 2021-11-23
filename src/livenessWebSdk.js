@@ -52,6 +52,7 @@ class surepassLivenessWebSdk extends EventEmitter {
   }
   handleSuccess(response) {
     this.userCompletedSteps = true;
+    this.popup.close()
     this.emit("success", response);
   }
 
@@ -64,7 +65,7 @@ class surepassLivenessWebSdk extends EventEmitter {
   LivenessWebSdkMessage(event) {
     try {
       const data = JSON.parse(event.data);
-      console.log(data);
+      // console.log(data);
       if (data.status_code === 200) {
         this.handleSuccess(data);
       } else {

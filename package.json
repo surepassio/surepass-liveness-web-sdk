@@ -1,5 +1,5 @@
 {
-  "name": "@surepass/livenessWebSdk",
+  "name": "@surepass/liveness-web-sdk",
   "version": "1.0.0",
   "description": "Script to initialize the Liveness Web Sdk",
   "main": "./lib/livenessWebSdk.min.js",

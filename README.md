@@ -111,7 +111,7 @@ export default function App() {
 }
 ```
 
-[![Edit blissful-aryabhata-gwcu5](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/blissful-aryabhata-gwcu5?fontsize=14&hidenavigation=1&theme=dark)
+[![Edit recursing-leftpad-4xoj6](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/recursing-leftpad-4xoj6?fontsize=14&hidenavigation=1&theme=dark)
 
 #### Using in script tag
 
@@ -159,7 +159,7 @@ export default function App() {
 
 ```
 
-[![Edit priceless-fermi-g0imp](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/priceless-fermi-g0imp?fontsize=14&hidenavigation=1&theme=dark)
+[![Edit brave-pike-8n3dm](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/brave-pike-8n3dm?fontsize=14&hidenavigation=1&theme=dark)
 
 ### Handling the responses in callback
 

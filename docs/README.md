@@ -1,14 +1,12 @@
-[![N|Solid](images/surepass.png)]
+![N|Solid](./images/surepass.png)
 
-SurePass eSign Web SDK lets you digitally sign documents easily using Aadhaar with basic and quick setup on your desired platform, be it mobile or web application.
+SurePass Liveness Web SDK lets you verify user easily using our face detection and other features with basic and quick setup on your desired platform, be it mobile or web application.
 
 ## Basic Overview
 
-SurePass eSign Web SDK provides a flexible option to integrate with your existing workflow. It can be consumed in two ways. You can add it to your flow of eSign and then expect a redirect at the url you passed while you were initializing the token. The other option is to use an event driven approach where you can initialize it in a new browser tab (for mobile devices and desktop) or in a new window (in desktop applications) and use the callback function to move forward based on success or failure of eSign.
+SurePass Liveness Web SDK provides a flexible option to integrate with your existing workflow. It can be consumed in two ways. You can add it to your flow of Liveness web sdk and then expect a redirect at the url you passed while you were initializing the token. The other option is to use an event driven approach where you can initialize it in a new browser tab (for mobile devices and desktop) or in a new window (in desktop applications) and use the callback function to move forward based on success or failure of liveness web sdk.
 
 ## Table of Contents
-
-- [SDK examples](#sdk-production-examples)
 
 - [Installation](#installation)
 
@@ -22,30 +20,28 @@ SurePass eSign Web SDK provides a flexible option to integrate with your existin
 
 - [Handling the callback response](#handling-the-responses-in-callback)
 
-## SDK Production Examples
-
 
 ## Installation
 
 You can easily setup the SDK in your application using either of the following ways.
 
-- **Install the eSign Web SDK as npm package.**
+- **Install the Liveness Web SDK as npm package.**
 
 ```shell script
 
-$ npm i @surepass/esign
+$ npm i @surepass/liveness-web-sdk --save
 
 ```
 
 - **Directly embed the script tag in your application.**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/surepassio/aadhaar-esign-web-sdk@1.1.3/lib/eSignPopUp.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/surepassio/surepass-liveness-web-sdk@1.1.0/lib/livenessWebSdk.min.js"></script>
 ```
 
 ## Getting Started
 
-There are two ways you can integrate the web SDK into your flow.
+There are two ways you can integrate the liveness web SDK into your flow.
 
 - [Using the redirect process.](#using-redirect)
 
@@ -55,23 +51,23 @@ There are two ways you can integrate the web SDK into your flow.
 
 To use this method you need to initialize the token providing a redirect URL.
 
-- Redirect the user to [SurePass eSign](https://esign-client.surepass.io/) with token in the query string which looks similar to `https://esign-client.surepass.io/?token=YOUR_TOKEN`.
+- Redirect the user to [SurePass Liveness Web SDK](https://liveness-web-sdk-dot-neopt-capture.el.r.appspot.com/) with token in the query string which looks similar to `https://liveness-web-sdk-dot-neopt-capture.el.r.appspot.com/?liveness_token=YOUR_TOKEN`.
 
-- On successful completion of eSign we will redirect the user to your provided redirect URL.
+- On successful completion of web sdk we will redirect the user to your provided redirect URL.
 
 **Note:** Using this approach doesn't require our supplementary package or script to be setup.
 
 ### Using event based approach
 
-Specifying redirect URL while initializing token is completely optional. If this parameter is skipped, SurePass Web eSign follows event based approach.
+Specifying redirect URL while initializing token is completely optional. If this parameter is skipped, SurePass Liveness SDK follows event based approach.
 
 - Make the token initialization without specifying any redirect URL.
 
-- You may optionally use our supplementary package or make one for yourself to initiate the eSign window with a callback function that will return the eSign status. Either success or failure along with a brief message.
+- You may optionally use our supplementary package or make one for yourself to initiate the web sdk window with a callback function that will return the verification status. Either success or failure along with a brief message.
 
 ### Basic Usage
 
-Following example opens a new window or tab depending on the device being used either desktop or mobile. Finally, it invokes `onSuccess` or `onError` functions depending on the status of the eSign process.
+Following example opens a new window or tab depending on the device being used either desktop or mobile. Finally, it invokes `onSuccess` or `onError` functions depending on the status of the verification process.
 
 #### Using npm package
 
@@ -80,10 +76,10 @@ import React from "react";
 
 import "./styles.css";
 
-import { OpenEsignPopUP } from "@surepass/esign";
+import { OpenLivenessWebSdkPopUP } from "@surepass/esign";
 
-function openEsign(onSuccess, onError) {
-  const token = 123;
+function openLivenessSdk(onSuccess, onError) {
+  const token = "YOUR TOKEN";
 
   const options = {
     token,
@@ -93,9 +89,9 @@ function openEsign(onSuccess, onError) {
     dimension: { width: "450", height: "850" },
   };
 
-  const esign = new OpenEsignPopUP(options);
+  const livenessSdk = new OpenLivenessWebSdkPopUP(options);
 
-  esign.openWindow(onSuccess, onError);
+  livenessSdk.openWindow(onSuccess, onError);
 }
 
 function onSuccess(response) {
@@ -109,113 +105,80 @@ function onError(response) {
 export default function App() {
   return (
     <div className="App">
-      <button onClick={() => openEsign(onSuccess, onError)}>Call</button>
+      <button onClick={() => openLivenessSdk(onSuccess, onError)}>Call</button>
     </div>
   );
 }
 ```
 
-[![Edit blissful-aryabhata-gwcu5](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/blissful-aryabhata-gwcu5?fontsize=14&hidenavigation=1&theme=dark)
+[![Edit recursing-leftpad-4xoj6](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/recursing-leftpad-4xoj6?fontsize=14&hidenavigation=1&theme=dark)
 
 #### Using in script tag
 
-```<!-- For testing using script tag -->
+```html
+<!-- For testing using script tag -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/gh/surepassio/surepass-liveness-web-sdk@1.0.0/lib/livenessWebSdk.min.js"></script>
+    <script>
+        const LivenessWebSdkPopUpOpener = window.livenessWebSdk.default
+      function openLivenessSdk(onSuccess, onError) {
+        //  you need to paste your token here
+        const token = "YOUR TOKEN HERE";
+        const options = {
+          token,
+          window_name: "Surepass",
+          dimension: { width: "450", height: "850" },
+        };
+        const livenessSdk = new LivenessWebSdkPopUpOpener(options);
+        livenessSdk.openWindow(onSuccess, onError);
+      }
 
-<!DOCTYPE  html>
+      function onSuccess(response) {
+        console.log("Response", response);
+      }
 
-<html  lang="en">
+      function onError(response) {
+        console.log("Error", response);
+      }
 
-<head>
-
-<meta  charset="UTF-8"  />
-
-<meta  name="viewport"  content="width=device-width, initial-scale=1.0"  />
-
-<title>Document</title>
-
-<script  src="./lib/eSignPopUp.min.js"></script>
-
-<script>
-
-const  EsignPopUpOpener = window.eSignPopUp.default
-
-function  openEsign(onSuccess, onError) {
-
-const  token = 123;
-
-const  options = {
-
-token,
-
-window_name:  "Surepass",
-
-dimension: { width:  "450", height:  "850" },
-
-};
-
-const  esign = new  EsignPopUpOpener(options);
-
-esign.openWindow(onSuccess, onError);
-
-}
-
-
-
-function  onSuccess(response) {
-
-console.log("Response", response);
-
-}
-
-
-
-function  onError(response) {
-
-console.log("Error", response);
-
-}
-
-
-
-function  openPopUp(){
-
-openEsign(onSuccess,onError)
-
-}
-
-</script>
-
-</head>
-
-<body>
-
-<button  onclick="openPopUp()">Open</button>
-
-</body>
-
+      function openPopUp(){
+          openLivenessSdk(onSuccess,onError)
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="openPopUp()">Open</button>
+  </body>
 </html>
+
 
 ```
 
-[![Edit priceless-fermi-g0imp](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/priceless-fermi-g0imp?fontsize=14&hidenavigation=1&theme=dark)
+[![Edit brave-pike-8n3dm](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/brave-pike-8n3dm?fontsize=14&hidenavigation=1&theme=dark)
 
 ### Handling the responses in callback
 
-SurePass eSign returns following response depending on the status of eSign process.
+SurePass Liveness SDK returns following response depending on the status of verification process.
 
 **Note:** Only the **200 SUCCESS** status is sent to `onSuccess` function. Rest, all the other responses are dispatched to the `onError` function.
 
 - #### 200 SUCCESS
 
-Returns HTTP status of 200 OK, when the eSign process has been completed successfully.
+Returns HTTP status of 200 OK, when the verifcation process has been completed successfully.
 
 ```json
 {
   "data": {
-    "error": null
+    "client_id": "CLIENT_ID"
   },
   "status_code": 200,
-  "message": "successfully e-sign the document",
+  "message_code": "SUCCESS",
+  "message": "Successfully Completed",
   "success": true
 }
 ```
@@ -225,14 +188,12 @@ Returns HTTP status of 200 OK, when the eSign process has been completed success
 ```json
 {
   "data": {
-    "error": "UNAUTH_ACCESS"
+    "client_id": "CLIENT_ID"
   },
-
   "status_code": 401,
-
-  "message": "Invalid Token ",
-
-  "success": false
+  "message_code": "UNAUTH_ACCESS",
+  "message": "Invalid Token",
+  "success": true
 }
 ```
 
@@ -241,45 +202,40 @@ Returns HTTP status of 200 OK, when the eSign process has been completed success
 ```json
 {
   "data": {
-    "error": "MAX_RETRY"
+    "client_id": "CLIENT_ID"
   },
-
   "status_code": 403,
-
-  "message": "The message about the possible cause. Due to phone number or OTPs.",
-
+  "message_code": "TOKEN_EXPIRED",
+  "message": "Token Expired",
   "success": false
 }
 ```
 
-- #### 422 USER REFUSAL TO VERIFY DOCUMENT
+- #### 433 SESSION CLOSED BY USER
 
 ```json
 {
   "data": {
-    "error": "VERIFY_REFUSAL"
+    "client_id": "CLIENT_ID"
   },
-
-  "status_code": 422,
-
-  "message": "User refused to verify the document",
-
-  "success": false
-}
-```
-
-- #### 433 POPUP CLOSED BY USER
-
-```json
-{
-  "data": {
-    "error": "POPUP_CLOSED"
-  },
-
   "status_code": 433,
+  "message_code": "SDK_CLOSED",
+  "message": "User closed the SDK before process completed",
+  "success": false
+}
+```
+Alternative Message: "Face Not Found",
 
-  "message": "User closed the popup window before process completed",
+- #### 500 INTERNAL SERVER ERROR
 
+```json
+{
+  "data": {
+    "client_id": "CLIENT_ID"
+  },
+  "status_code": 500,
+  "message_code": "INT_SERVER_ERROR",
+  "message": "Something went wrong. Try again later",
   "success": false
 }
 ```
@@ -289,44 +245,28 @@ Returns HTTP status of 200 OK, when the eSign process has been completed success
 ```json
 {
   "data": {
-    "error": "UNKNOWN_ERROR"
+   "client_id": "CLIENT_ID"
   },
-
   "status_code": 450,
-
+  "message_code": "UNKNOWN_ERROR",
   "message": "An error occurred",
-
   "success": false
 }
 ```
 
-- #### 500 INTERNAL SERVER ERROR
+- #### 501 TIMEOUT ERROR
 
 ```json
 {
   "data": {
-    "error": "INT_SERVER_ERROR"
-  },
-
-  "status_code": 500,
-
-  "message": "Internal server error occurred",
-
-  "success": false
-}
-```
-
-- #### 501 ERROR FROM NSDL
-
-```json
-{
-  "data": {
-    "error": "NSDL_ERROR"
+    "client_id": "CLIENT_ID"
   },
   "status_code": 501,
-  "message": "error from nsdl while signing document",
+  "message_code": "TIMEOUT_ERROR",
+  "message": "Session Timeout Occurred",
   "success": false
 }
 ```
 
-> All these messages are sent from the eSign window using `Widow.postMessage` function of javascript except the message of popup closure by user that we infer programmatically. So, you can design your own utility code based on [src/livenessWebSdk.js](/src/livenessWebSdk.js) to get the message from the child window or tab that your application will open.
+
+> All these messages are sent from the liveness web sdk window using `Widow.postMessage` function of javascript except the message of popup closure by user that we infer programmatically. So, you can design your own utility code based on [src/livenessWebSdk.js](/src/livenessWebSdk.js) to get the message from the child window or tab that your application will open.

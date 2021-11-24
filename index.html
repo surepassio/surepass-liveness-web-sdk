@@ -5,11 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="./lib/livenessWebSdk.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/surepassio/surepass-liveness-web-sdk@1.1.0/lib/livenessWebSdk.min.js"></script>
     <script>
-        const LivenessWebSdkPopUpOpener = window.livenessWebSdk.default
+      const LivenessWebSdkPopUpOpener = window.livenessWebSdk.default
       function openLivenessSdk(onSuccess, onError) {
-        const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzNzY0NzIwMCwianRpIjoiMmFmYmZkOTItZGMwMy00YTcyLTk0NjMtNGI3MzdjNzM3ZjE3IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoibGl2ZW5lc3NfbGl2ZW5lc3Nfc2RrX1FQVnZoa3JickRlVktUVnFiQXhtIiwibmJmIjoxNjM3NjQ3MjAwLCJleHAiOjE2Mzc2NDgxMDAsInVzZXJfY2xhaW1zIjp7InNjb3BlcyI6WyJsaXZlbmVzcy1zdWJtaXQtcmVzdWx0cyIsImxpdmVuZXNzLWdldC1jb25maWciXX19.M13UOlfu2hdIsG4tG_DxqYN-KXEEateknfFtUv1UhrE";
+        //  you need to paste your token here
+        const token = "YOUR TOKEN HERE";
         const options = {
           token,
           window_name: "Surepass",

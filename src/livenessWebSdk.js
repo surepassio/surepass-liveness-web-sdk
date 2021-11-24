@@ -132,7 +132,7 @@ class LivenessWebSdkPopUpOpener {
   openWindow(onSuccess, onError) {
     const token = this.token;
     const options = this.options;
-    const url = `https://liveness-web-sdk-dot-neopt-capture.el.r.appspot.com/?liveness_token=${token}&window_name=${options.window_name?options.window_name:'Surepass Livemess SDK'}`;
+    const url = `https://kyc.surepass.io/?liveness_token=${token}&window_name=${options.window_name?options.window_name:'Surepass Livemess SDK'}`;
     this.LivenessWebSdk.openWindow(url, options);
     this.LivenessWebSdk.on("error", (response) => onError(response));
     this.LivenessWebSdk.on("success", (response) => onSuccess(response));

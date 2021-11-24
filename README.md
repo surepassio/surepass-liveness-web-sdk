@@ -36,7 +36,7 @@ $ npm i @surepass/liveness-web-sdk --save
 - **Directly embed the script tag in your application.**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/surepassio/surepass-liveness-web-sdk@1.0.0/lib/livenessWebSdk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/surepassio/surepass-liveness-web-sdk@1.1.0/lib/livenessWebSdk.min.js"></script>
 ```
 
 ## Getting Started
@@ -51,7 +51,7 @@ There are two ways you can integrate the liveness web SDK into your flow.
 
 To use this method you need to initialize the token providing a redirect URL.
 
-- Redirect the user to [SurePass Liveness Web SDK](https://liveness-web-sdk-dot-neopt-capture.el.r.appspot.com/) with token in the query string which looks similar to `https://liveness-web-sdk-dot-neopt-capture.el.r.appspot.com/?liveness_token=YOUR_TOKEN`.
+- Redirect the user to [SurePass Liveness Web SDK](https://kyc.surepass.io/) with token in the query string which looks similar to `https://kyc.surepass.io/?liveness_token=YOUR_TOKEN`.
 
 - On successful completion of web sdk we will redirect the user to your provided redirect URL.
 
